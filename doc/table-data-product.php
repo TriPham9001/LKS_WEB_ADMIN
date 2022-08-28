@@ -28,14 +28,16 @@
                         <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất
                             Excel</a>
                     </div>
-
+                    <div class="col-sm-2">
+                        <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Xuất PDF</a>
+                    </div>
                 </div>
                 <table class="table table-hover table-bordered" id="sampleTable">
                     <thead>
                         <tr>
                             <th>Mã sản phẩm</th>
-                            <th style="width: 100px;">Tên thể loại</th>
-                            <th>Tên company</th>
+                            <th>Mã thể loại</th>
+                            <th>Mã company</th>
                             <th>Tên sản phẩm</th>
                             <th>Đơn giá</th>
                             <th>Mô tả</th>
@@ -47,17 +49,17 @@
                     <tbody>
                         <?php
                         include '../config.php';
-                        $sql = "SELECT * FROM tblsanpham sp INNER JOIN tblTheLoai tl ON sp.idTheLoai = tl.id INNER JOIN tblcompany cp ON sp.idCompany=cp.id";
+                        $sql = "SELECT * FROM tblsanpham";
                         $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) { ?>
 
                             <tr>
                                 <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['tenTheLoai'] ?></td>
-                                <td><?php echo $row['tenCompany'] ?></td>
+                                <td><?php echo $row['idTheLoai'] ?></td>
+                                <td><?php echo $row['idCompany'] ?></td>
                                 <td><?php echo $row['tenSP'] ?></td>
 
-                                <td><?php echo $format = number_format($row['donGia']) ?></td>
+                                <td><?php echo $format = number_format($row['donGia'])?></td>
                                 <td><?php echo $row['moTa'] ?></td>
                                 <td>
                                     <?php if ($row['trangThaiSP'] == 0) {
@@ -66,12 +68,12 @@
                                     if ($row['trangThaiSP'] == 1) {
                                         echo '<span class="badge bg-success">Còn Sản Phẩm</span>';
                                     }
-
+                                    
                                     ?>
                                 </td>
-
-
-
+                            
+                            
+                           
                                 <td>
                                     <a class="btn btn-primary btn-sm edit" href="index.php?page_layout=updateSP&id=<?php echo $row['id'] ?>">
                                         <i class="fas fa-edit">

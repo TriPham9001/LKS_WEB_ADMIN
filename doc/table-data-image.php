@@ -34,7 +34,7 @@
                     <div class="col-sm-2">
                         <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Xuất PDF</a>
                     </div>
-
+                   
                 </div>
                 <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0" id="sampleTable">
                     <thead>
@@ -49,14 +49,14 @@
                     <tbody>
                         <?php
                         include '../config.php';
-                        $sql = "SELECT * FROM tblimage img INNER JOIN tblsanpham sp ON img.idSanPham=sp.id";
+                        $sql = "SELECT * FROM tblimage";
 
                         $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) { ?>
 
                             <tr>
                                 <td style="text-align: center;line-height: 200px;"><?php echo $row['id'] ?></td>
-                                <td style="text-align: center;line-height: 200px;"><?php echo $row['tenSP'] ?></td>
+                                <td style="text-align: center;line-height: 200px;"><?php echo $row['idSanPham'] ?></td>
                                 <td style="text-align: center;line-height: 200px;">
 
                                     <img src="<?php echo $row['imgUrl'] ?>" alt="" style="width: 200px;height: 200px; border: 1px solid #000;">

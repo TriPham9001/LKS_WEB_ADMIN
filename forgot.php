@@ -30,7 +30,7 @@
               </div>
                 <form class="login100-form validate-form">
                     <span class="login100-form-title">
-                        <b>KHÔI PHỤC MẬT KHẨU</b>
+                        <b>SAI MẬT KHẨU</b>
                     </span>
                     <form action="custommer.html">
                         <div class="wrap-input100 validate-input"
@@ -42,9 +42,7 @@
                                 <i class='bx bx-mail-send' ></i>
                             </span>
                         </div>
-                        <div class="container-login100-form-btn">
-                            <input type="button" onclick="return RegexEmail('emailInput')" value="Lấy mật khẩu" />
-                        </div>
+                        
 
                         <div class="text-center p-t-12">
                             <a class="txt2" href="login.php">
