@@ -34,15 +34,14 @@
                     <div class="col-sm-2">
                         <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Xuất PDF</a>
                     </div>
-                    <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                    </div>
+
                 </div>
                 <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0" id="sampleTable">
                     <thead>
                         <tr>
-                            <th>ID Company</th>
-                            <th>Tên Company</th>
+                            <th style="text-align: center;">ID Company</th>
+                            <th style="text-align: center;">Tên Company</th>
+                            <th style="text-align: center;">Công Cụ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,10 +51,10 @@
                         $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) { ?>
 
-                            <tr>
-                                <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['tenCompany'] ?></td>
-                                <td>
+                            <tr style="text-align: center;">
+                                <td style="text-align: center;"><?php echo $row['id'] ?></td>
+                                <td style="text-align: center;"><?php echo $row['tenCompany'] ?></td>
+                                <td style="text-align: center;">
                                     <a class="btn btn-primary btn-sm edit" href="index.php?page_layout=updateCompany&id=<?php echo $row['id'] ?>">
                                         <i class="fas fa-edit">
                                             Sửa

@@ -13,22 +13,18 @@
                 <div class="row element-button">
                     <div class="col-sm-2">
 
-                        <a class="btn btn-add btn-sm" href="index.php?page_layout=themMoiImage" title="Thêm"><i
-                                class="fas fa-plus"></i>
+                        <a class="btn btn-add btn-sm" href="index.php?page_layout=themMoiImage" title="Thêm"><i class="fas fa-plus"></i>
                             Tạo mới Hình ảnh sản phẩm</a>
                     </div>
                     <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập"
-                            onclick="myFunction(this)"><i class="fas fa-file-upload"></i> Tải từ file</a>
+                        <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i class="fas fa-file-upload"></i> Tải từ file</a>
                     </div>
 
                     <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                            onclick="myApp.printTable()"><i class="fas fa-print"></i> In dữ liệu</a>
+                        <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i class="fas fa-print"></i> In dữ liệu</a>
                     </div>
                     <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
-                                class="fas fa-copy"></i> Sao chép</a>
+                        <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i class="fas fa-copy"></i> Sao chép</a>
                     </div>
 
                     <div class="col-sm-2">
@@ -36,56 +32,55 @@
                             Excel</a>
                     </div>
                     <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                                class="fas fa-file-pdf"></i> Xuất PDF</a>
+                        <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Xuất PDF</a>
                     </div>
-                    <div class="col-sm-2">
-                        <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                                class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                    </div>
+
                 </div>
-                <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0"
-                    border="0" id="sampleTable">
+                <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0" id="sampleTable">
                     <thead>
                         <tr>
-                            <th>ID Ảnh</th>
-                            <th>ID Sản Phẩm</th>
-                            <th>Tên Ảnh</th>
+                            <th style="text-align: center;">ID Ảnh</th>
+                            <th style="width: 500px;text-align: center;">Tên Sản Phẩm</th>
+                            <th style="text-align: center;">Hình Ảnh</th>
+                            <th style="text-align: center;">Công Cụ</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                          include'../config.php';
-                          $sql = "SELECT * FROM tblimage";
-                          $result = $conn->query($sql);
-                          while($row = $result->fetch_assoc()){?>
+                        include '../config.php';
+                        $sql = "SELECT * FROM tblimage img INNER JOIN tblsanpham sp ON img.idSanPham=sp.id";
 
-                        <tr>
-                            <td><?php echo $row['id']?></td>
-                            <td><?php echo $row['idSanPham']?></td>
-                            <td><?php echo $row['imgUrl']?></td>
-                            <td>
-                                <a class="btn btn-primary btn-sm edit" 
-                                    href="index.php?page_layout=updateImage&id=<?php echo $row['id']?>"
-                                    >
-                                    <i class="fas fa-edit">
-                                        Sửa
-                                    </i>
-                                </a>
+                        $result = $conn->query($sql);
+                        while ($row = $result->fetch_assoc()) { ?>
 
-                                <a class="btn btn-primary btn-sm trash" onclick="return Del('<?php echo $row['idSanPham']?>')"
-                                    href="index.php?page_layout=deleteImage&id=<?php echo $row['id']?>"
-                                    >
-                                    <i class=" fas fa-trash-alt">
-                                        Xoá
-                                    </i>
-                                </a>
+                            <tr>
+                                <td style="text-align: center;line-height: 200px;"><?php echo $row['id'] ?></td>
+                                <td style="text-align: center;line-height: 200px;"><?php echo $row['tenSP'] ?></td>
+                                <td style="text-align: center;line-height: 200px;">
+
+                                    <img src="<?php echo $row['imgUrl'] ?>" alt="" style="width: 200px;height: 200px; border: 1px solid #000;">
 
 
-                            </td>
-                        </tr>
+                                </td>
+                                <td style="text-align: center;line-height: 200px;">
+                                    <a class="btn btn-primary btn-sm edit" href="index.php?page_layout=updateImage&id=<?php echo $row['id'] ?>">
+                                        <i class="fas fa-edit">
+                                            Sửa
+                                        </i>
+                                    </a>
 
-                        <?php }?>
+                                    <a class="btn btn-primary btn-sm trash" onclick="return Del('<?php echo $row['idSanPham'] ?>')" href="index.php?page_layout=deleteImage&id=<?php echo $row['id'] ?>">
+                                        <i class=" fas fa-trash-alt">
+                                            Xoá
+                                        </i>
+                                    </a>
+
+
+                                </td>
+                            </tr>
+
+                        <?php } ?>
 
 
 
@@ -96,7 +91,7 @@
     </div>
 </div>
 <script>
-    function Del(name){
-        return confirm("Bạn có muốn Xoá Image: "+name+"???");
+    function Del(name) {
+        return confirm("Bạn có muốn Xoá Image: " + name + "???");
     }
 </script>

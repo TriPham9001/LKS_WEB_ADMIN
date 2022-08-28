@@ -20,6 +20,8 @@
               <th>Chi Tiết</th>
               <th>Trạng Thái</th>
               <th>Ngày Mua</th>
+              <th>Công Cụ</th>
+
             </tr>
           </thead>
           <tbody>

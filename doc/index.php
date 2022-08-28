@@ -58,16 +58,17 @@ if (isset($_POST["logout"])) {
       <li><a class="app-menu__item" href="index.php?page_layout=quanlySP"><i class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản
             phẩm</span></a>
       </li>
-      <li><a class="app-menu__item" href="index.php?page_layout=quanlyImage"><i class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý Image</span></a>
+      <li><a class="app-menu__item" href="index.php?page_layout=quanlyImage"><i class='app-menu__icon bx bx-image'></i><span class="app-menu__label">Quản lý Image</span></a>
       </li>
       <li><a class="app-menu__item" href="index.php?page_layout=quanlyHD"><i class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý đơn hàng</span></a>
       </li>
-      <li><a class="app-menu__item" href="index.php?page_layout=quanlyTheLoai"><i class='app-menu__icon fa-solid fa-clipboard-list'></i><span class="app-menu__label">Quản lý Thể Loại</span></a>
+      <li><a class="app-menu__item" href="index.php?page_layout=quanlyTheLoai"><i class='app-menu__icon bx bx-list-check'></i><span class="app-menu__label">Quản lý Thể Loại</span></a>
       </li>
-      <li><a class="app-menu__item" href="index.php?page_layout=quanlyCompany"><i class="app-menu__icon fa-regular fa-handshake"></i><span class="app-menu__label">Quản lý Company</span></a>
+      <li><a class="app-menu__item" href="index.php?page_layout=quanlyCompany"><i class="app-menu__icon bx bx-building"></i><span class="app-menu__label">Quản lý Company</span></a>
       </li>
+      
       </span></a></li>
-      <li><a class="app-menu__item" href="index.php?page_layout=quanlyLuong"><i class='app-menu__icon bx bx-dollar'></i><span class="app-menu__label">Quản lý Voucher</span></a>
+      <li><a class="app-menu__item" href="index.php?page_layout=quanlyLuong"><i class='app-menu__icon bx bxs-badge-dollar'></i><span class="app-menu__label">Quản lý Voucher</span></a>
       </li>
       <li><a class="app-menu__item" href="index.php?page_layout=BaoCaoDoanhThu"><i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>

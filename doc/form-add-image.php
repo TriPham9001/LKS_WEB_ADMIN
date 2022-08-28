@@ -39,6 +39,7 @@ if (isset($_POST['add'])) {
                     <div class="form-group col-md-4">
                         <label class="control-label">Image URL</label>
                         <input class="form-control" type="text" name="url" required>
+
                     </div>
                     <div class="form-group  col-md-12">
                         <button class="btn btn-save" type="submit" name="add">Lưu lại</button>

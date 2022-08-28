@@ -34,23 +34,23 @@ if (isset($_POST['add'])) {
                 <form class="row" method="POST">
                     <div class="form-group col-md-4">
                         <label class="control-label">id Image</label>
-                        <input class="form-control" type="text" name="id" required value="<?php echo $row_up['id'] ?>"
-                            readonly>
+                        <input class="form-control" type="text" name="id" required value="<?php echo $row_up['id'] ?>" readonly>
                     </div>
                     <div class="form-group col-md-4">
                         <label class="control-label">Id Sản Phẩm</label>
                         <select class="form-control" name="sanPham">
                             <?php
                             while ($row_sP = mysqli_fetch_assoc($query_sP)) { ?>
-                            <option value="<?php echo $row_sP['id'] ?>">
-                                <?php echo $row_sP['id'] ?> / <?php echo $row_sP['tenSP'] ?></option>
+                                <option value="<?php echo $row_sP['id'] ?>">
+                                    <?php echo $row_sP['id'] ?> / <?php echo $row_sP['tenSP'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label class="control-label">Image URL</label>
-                        <input class="form-control" type="text" name="url" required
-                            value="<?php echo $row_up['imgUrl'] ?>">
+                        <input class="form-control" type="text" name="url" required value="<?php echo $row_up['imgUrl'] ?>">
+                        <img src="<?php echo $row_up['imgUrl'] ?>" alt="" style="width: 200px;height: 200px; border: 1px solid #000;">
+
                     </div>
                     <div class="form-group  col-md-12">
                         <button class="btn btn-save" type="submit" name="add">Lưu lại</button>
