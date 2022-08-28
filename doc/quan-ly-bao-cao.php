@@ -20,7 +20,7 @@
                 while ($row = $result->fetch_assoc()) { ?>
                     <p><b><?php echo $format = number_format($row['COUNT(id)']) ?> Nhân Viên</b></p>
                 <?php } ?>
-                
+
             </div>
         </div>
     </div>
@@ -107,9 +107,18 @@
                 $sql = "SELECT COUNT(id) FROM tblsanpham";
                 $query = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($query);
+
+                $sql_con = "SELECT COUNT(id) FROM tblsanpham WHERE trangThaiSP=1";
+                $query_con = mysqli_query($conn, $sql_con);
+                $row_con = mysqli_fetch_assoc($query_con);
+
+                $sql_het = "SELECT COUNT(id) FROM tblsanpham WHERE trangThaiSP=0";
+                $query_het = mysqli_query($conn, $sql_het);
+                $row_het = mysqli_fetch_assoc($query_het);
                 ?>
                 <p><b><?php echo $format = number_format($row['COUNT(id)']) ?> sản phẩm</b></p>
-                <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+                <p class="info-tong"></p>
+                <p class="info-tong"><?php echo $format = number_format($row_con['COUNT(id)']) ?> Sản Phẩm Còn Hàng / <?php echo $format = number_format($row_het['COUNT(id)']) ?> Sản Phẩm Hết Hàng</p>
             </div>
         </div>
     </div>
