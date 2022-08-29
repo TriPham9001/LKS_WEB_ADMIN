@@ -187,7 +187,7 @@ if (isset($_POST["logout"])) {
           include_once './table-data-table.php';
       }
     } else {
-      include_once './table-data-table.php';
+      include_once './table-data-oder-chua-XN.php';
     }
     ?>
   </main>

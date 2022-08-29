@@ -1,14 +1,3 @@
-<?php
-include '../config.php';
-
-$idHd = $_GET['id'];
-
-
-$sql_up = "SELECT * FROM tblcthd WHERE idHoaDon=$idHd";
-$query_up = mysqli_query($conn, $sql_up);
-$row_up = mysqli_fetch_assoc($query_up);
-
-?>
 <div class="app-title">
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">Danh sách Chi Tiết Hoá Đơn</li>
@@ -20,22 +9,35 @@ $row_up = mysqli_fetch_assoc($query_up);
             <h3 class="tile-title">Chi Tiết Hoá Đơn</h3>
             <div class="tile-body">
                 <form class="row" method="POST">
-                    <div class="form-group col-md-3 ">
-                        <label for="exampleSelect1" class="control-label">ID</label>
-                        <input class="form-control" type="text" name="id" require value="<?php echo $row_up['id'] ?>" readonly>
-                    </div>
-                    <div class="form-group col-md-3 ">
-                        <label for="exampleSelect1" class="control-label">ID Hoá Đơn</label>
-                        <input class="form-control" type="text" name="idHoaDon" require value="<?php echo $row_up['idHoaDon'] ?>" readonly>
-                    </div>
-                    <div class="form-group col-md-3 ">
-                        <label for="exampleSelect1" class="control-label">ID Sản Phẩm</label>
-                        <input class="form-control" type="text" name="idSanPham" require value="<?php echo $row_up['idSanPham'] ?>" readonly>
-                    </div>
-                    <div class="form-group col-md-3 ">
-                        <label for="exampleSelect1" class="control-label">Số Lượng</label>
-                        <input class="form-control" type="number" name="soLuong" require value="<?php echo $row_up['soLuong'] ?>" readonly>
-                    </div>
+                    <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>Tên Sản Phẩm</th>
+                                <th width="150">Đơn Giá</th>
+                                <th width="300">Số Lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $idHd = $_GET['id'];
+                            $sql = "SELECT * FROM tblcthd hd INNER JOIN tblsanpham sp ON hd.idSanPham=sp.id WHERE hd.idHoaDon=$idHd";
+                            $result = mysqli_query($conn, $sql);
+
+                            while ($row = $result->fetch_assoc()) { ?>
+
+                                <tr>
+                                    <td><?php echo $row['tenSP'] ?></td>
+                                    <td><?php echo $row['donGia'] ?></td>
+                                    <td><?php echo $row['soLuong'] ?></td>
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
+
+
+
+                        </tbody>
+                    </table>
                 </form>
 
             </div>
